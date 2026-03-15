@@ -31,6 +31,8 @@ Em conformidade com as diretrizes do desafio, foram realizadas as seguintes esco
 *   **Observação:** A camada de Modelo foi abstraída de forma que, futuramente, a substituição por um banco de dados real (SQL ou NoSQL) exigiria alterações apenas no arquivo `database.js`, mantendo o restante da aplicação inalterado.
 *   
 ### 5. Testes (Acompanhe o vídeo de execução dos testes)
+Link Vídeo Pitch: https://drive.google.com/file/d/1KKhh9eldlz8Uey3d8v3Mm4e9nh1KG5XS/view?usp=sharing
+
 Inicie o servidor na pasta raiz: npm run dev
 Abra o postman e realize os testes de CRUD (POST, GET, PUT, DELETE) abaixo:
 
