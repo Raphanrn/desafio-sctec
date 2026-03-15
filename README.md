@@ -1,4 +1,6 @@
 # API de Empreendimentos de Santa Catarina
+## ️ Link Github: https://github.com/Raphanrn/desafio-sctec
+## ️ Link vídeo pitch: 
 
 ## 📖 Descrição
 Esta API RESTful gerencia informações sobre empreendimentos em SC, permitindo cadastro, consulta, edição e remoção. Desenvolvida para o desafio SCTEC - Trilha IA para DEVs.
@@ -27,3 +29,60 @@ Em conformidade com as diretrizes do desafio, foram realizadas as seguintes esco
 *   **Escolha:** **Armazenamento em Memória (In-Memory Storage)** utilizando Arrays nativos do JavaScript.
 *   **Justificativa:** Para este protótipo, optou-se por manter os dados na memória volátil do servidor. Isso elimina a complexidade de configuração de bancos de dados externos (como MySQL ou MongoDB), permitindo que qualquer desenvolvedor execute o projeto imediatamente apenas com `npm install`, sem necessidade de instalar servidores de banco de dados adicionais.
 *   **Observação:** A camada de Modelo foi abstraída de forma que, futuramente, a substituição por um banco de dados real (SQL ou NoSQL) exigiria alterações apenas no arquivo `database.js`, mantendo o restante da aplicação inalterado.
+*   
+### 5. Testes (Acompanhe o vídeo de execução dos testes)
+Inicie o servidor na pasta raiz: npm run dev
+Abra o postman e realize os testes de CRUD (POST, GET, PUT, DELETE) abaixo:
+
+Teste 1: Listagem Inicial (READ - All)
+Método: GET
+URL: http://localhost:3000/api/empreendimentos
+Resultado Esperado: Status 200 OK. Um JSON com uma lista contendo 2 empreendimentos ("Tech Solutions SC" e "Mercado do Vale").
+
+Teste 2: Cadastro de Novo Empreendimento (CREATE)
+Objetivo: Cadastrar um novo registro válido.
+Método: POST
+URL: http://localhost:3000/api/empreendimentos
+Dados Válidos (Para CREATE e UPDATE) POST e PUT
+
+{
+  "nomeEmpreendimento": "Inovação Tech SC",
+  "nomeResponsavel": "Carlos Alberto",
+  "municipio": "Joinville",
+  "segmento": "Tecnologia",
+  "contato": "carlos@inovacaotech.com.br",
+  "status": "ativo"
+}
+
+Teste 3: Validação de Erros (CREATE com falha)
+Método: POST
+URL: http://localhost:3000/api/empreendimentos
+Dados Inválidos (Para testar Validação)
+{
+  "nomeEmpreendimento": "Oi", 
+  "nomeResponsavel": "X",
+  "municipio": "",
+  "segmento": "Invalido",
+  "contato": "email-sem-arroba",
+  "status": "pendente"
+}
+
+Teste 4: Listar um Único Registro (READ - One)
+Método: GET
+URL: http://localhost:3000/api/empreendimentos/ id xxxxxxxx
+
+Teste 5: Edição de Registro (UPDATE)
+Método: PUT
+URL: http://localhost:3000/api/empreendimentos/ id xxxxxxxx
+{
+  "municipio": "Florianópolis",
+  "status": "inativo"
+}
+
+Teste 6: Remoção de Registro (DELETE)
+Método: DELETE
+URL: http://localhost:3000/api/empreendimentos/ id xxxxxxxx
+
+Teste 7: Confirmação da Exclusão
+Método: GET
+URL: http://localhost:3000/api/empreendimentos
